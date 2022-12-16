@@ -89,7 +89,6 @@ int main() {
 			cout << c;
 			outputFile << c;
 		}
-		inputFile.peek();
 	}
 	write(word, foundLetters, outputFile);
 
