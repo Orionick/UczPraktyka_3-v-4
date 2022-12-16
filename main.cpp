@@ -91,10 +91,7 @@ int main() {
 		}
 		inputFile.peek();
 	}
-	cout << "Wait...\n";
 	write(word, foundLetters, outputFile);
-
-	cout << "Completed";
 
 	return 0;
 }
