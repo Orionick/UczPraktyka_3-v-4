@@ -48,19 +48,19 @@ void write(vector<char>& word, vector<char>& foundLetters, ofstream& outputFile)
 		}
 
 		for (size_t i = 0; i < word.size(); i++) {
-			cout << word[i];
+			std::cout << word[i];
 			outputFile << word[i];
 		}
 		word.clear();
 		if (foundLetters.size() > 0) {
-			cout << '(';
+			std::cout << '(';
 			outputFile << '(';
 			for (size_t i = 0; i < foundLetters.size(); i++) {
 				cout << foundLetters[i];
 				outputFile << foundLetters[i];
 			}
 
-			cout << ')';
+			std::cout << ')';
 			outputFile << ')';
 
 			foundLetters.clear();
@@ -72,12 +72,17 @@ int main() {
 	SetConsoleOutputCP(1251);
 	SetConsoleCP(1251);
 
-	ifstream inputFile("input.txt");
-	ofstream outputFile("output.txt");
+	ifstream inputFile(".\\input.txt");
+	if (!inputFile.good()) {
+		std::cout << "input.txt не удалось открыть";
+		std::cin.get();
+		return -1;
+	}
+	ofstream outputFile(".\\output.txt");
 
 	char c;
-	vector<char> word;
-	vector<char> foundLetters;
+	std::vector<char> word;
+	std::vector<char> foundLetters;
 
 	while (!inputFile.eof()) {
 		inputFile.get(c);
@@ -89,6 +94,7 @@ int main() {
 			cout << c;
 			outputFile << c;
 		}
+		//inputFile.peek();
 	}
 	write(word, foundLetters, outputFile);
 
